@@ -1,0 +1,1176 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Brasa &amp; Pão</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Brasa &amp; Pão, hamburgueria artesanal: carne 100% bovina moída na hora, pão assado todo dia e molhos da casa. Peça pelo WhatsApp ou pelo iFood.">
+<meta name="theme-color" content="#1A1410">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:title" content="Brasa &amp; Pão | Hamburgueria artesanal">
+<meta property="og:description" content="O hambúrguer que você sonha em morder. Carne suculenta, pão macio e ingredientes frescos, feitos na hora.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
+
+<!-- Dados estruturados para SEO (personalize endereço e telefone) -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Brasa & Pão","servesCuisine":"Hambúrgueres artesanais","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"Rua das Brasas, 123","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"},"telephone":"+55 11 99999-0000","sameAs":["https://www.instagram.com/brasaepao/"]}</script>
+
+<!-- Roda antes de tudo: marca a página como "com JS" e esconde fotos que falharem (o fundo em gradiente assume). -->
+<script>
+document.documentElement.classList.add('js');
+document.addEventListener('error', function (e) {
+  var t = e.target;
+  if (t && t.tagName === 'IMG') {
+    t.hidden = true;
+    var f = t.closest('.foto');
+    if (f) f.classList.add('sem-foto');
+  }
+}, true);
+</script>
+
+<style>
+/* =========================================================
+   BRASA & PÃO — landing page
+   Conceito: noite de chapa quente. Fundo carvão, brasa em
+   tomate e cheddar, e seções em creme para a página respirar.
+   Layout: header fixo, hero em tela cheia, seções alternando
+   escuro/claro, grids que passam de 1 → 2 → 4 colunas.
+   ========================================================= */
+
+:root {
+  /* Cores */
+  --carvao: #1A1410;
+  --carvao-2: #251C16;
+  --carvao-3: #33271E;
+  --tomate: #D62828;
+  --tomate-esc: #B01F1F;
+  --cheddar: #F7B801;
+  --cheddar-esc: #B88A00;
+  --creme: #FFF3E0;
+  --papel: #FFFBF4;
+  --tinta: #2A1F18;
+  --tinta-suave: #5E4D3F;
+  --texto-suave: rgba(255, 243, 224, .76);
+  --linha-escura: rgba(255, 243, 224, .14);
+  --linha-clara: rgba(42, 31, 24, .14);
+
+  /* Tipografia */
+  --font-display: 'Bebas Neue', 'Anton', Impact, 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Forma e profundidade */
+  --raio: 20px;
+  --raio-g: 28px;
+  --sombra: 0 10px 30px rgba(0, 0, 0, .28);
+  --sombra-hover: 0 18px 44px rgba(0, 0, 0, .42);
+  --header-h: 68px;
+
+  color-scheme: dark;
+}
+
+/* ===== Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--carvao);
+  color: var(--creme);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, p { margin-top: 0; }
+:focus-visible { outline: 3px solid var(--cheddar); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pular { position: absolute; left: 16px; top: -80px; z-index: 100; background: var(--cheddar); color: var(--carvao); padding: 10px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; }
+.pular:focus { top: 12px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.secao { padding-block: clamp(64px, 9vw, 120px); scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top, 0px)); }
+.claro { background: var(--creme); color: var(--tinta); }
+.escuro-2 { background: var(--carvao-2); }
+
+/* ===== Tipografia ===== */
+.eyebrow { margin: 0; font-size: .8rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--cheddar); }
+.claro .eyebrow { color: var(--tomate); }
+.titulo { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.6rem, 6.4vw, 4.6rem); line-height: .96; letter-spacing: .01em; margin: 0; text-wrap: balance; }
+.titulo em { font-style: normal; color: var(--cheddar); }
+.claro .titulo em { color: var(--tomate); }
+.lead { margin: 0; color: var(--texto-suave); font-size: 1.08rem; max-width: 46ch; text-wrap: pretty; }
+.claro .lead { color: var(--tinta-suave); }
+.cab { display: grid; gap: 14px; max-width: 640px; margin-bottom: clamp(32px, 5vw, 56px); }
+
+/* ===== Botões ===== */
+.btn {
+  --sb: var(--cheddar-esc);
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  min-height: 52px; padding: .85rem 1.7rem;
+  border: 2px solid transparent; border-radius: 999px;
+  font: 700 1rem/1.1 var(--font-body); letter-spacing: .02em; text-decoration: none;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 5px 0 var(--sb);
+  transition: transform .15s ease, box-shadow .15s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--sb); }
+.btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--sb); }
+.btn-sm { min-height: 42px; padding: .55rem 1.15rem; font-size: .92rem; box-shadow: 0 4px 0 var(--sb); }
+.btn-sm:hover { box-shadow: 0 6px 0 var(--sb); }
+.btn-sm:active { box-shadow: 0 1px 0 var(--sb); }
+.btn-primario { background: var(--cheddar); color: var(--carvao); }
+.btn-primario:hover { background: #FFC81F; }
+.btn-tomate { --sb: #7E1414; background: var(--tomate); color: var(--creme); }
+.btn-tomate:hover { background: #E23434; }
+.btn-fantasma { --sb: rgba(0, 0, 0, .35); background: rgba(26, 20, 16, .35); color: var(--creme); border-color: var(--creme); }
+.btn-fantasma:hover { background: var(--creme); color: var(--carvao); }
+.btn-escuro { --sb: #000; background: var(--carvao); color: var(--creme); }
+.btn-escuro:hover { background: var(--carvao-3); }
+
+/* ===== Ícones ===== */
+.ic, .ico { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ic { width: 1.25em; height: 1.25em; flex: none; }
+
+/* ===== Foto com fallback em gradiente =====
+   O gradiente sempre existe atrás da <img>. Se a foto carregar, ela cobre tudo;
+   se falhar, o ícone e o gradiente aparecem no lugar. */
+.foto {
+  position: relative; display: block; overflow: hidden;
+  background:
+    radial-gradient(90% 80% at 25% 15%, var(--ga, #F7B801) 0%, transparent 62%),
+    linear-gradient(155deg, var(--gb, #8A2A12), #1F1510);
+}
+.foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; color: transparent; transition: transform .6s ease; }
+.foto .ico { position: absolute; inset: 0; margin: auto; width: 34%; height: 34%; color: var(--creme); opacity: .3; stroke-width: 1.3; }
+
+/* ===== Animação de entrada ao rolar (começa visível, só deslocada) ===== */
+.rev { transition: opacity .8s ease var(--d, 0s), transform .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); }
+html.js .rev:not(.in) { opacity: .35; transform: translateY(26px); }
+
+/* =========================================================
+   1. HEADER
+   ========================================================= */
+.topo {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: background-color .25s ease, box-shadow .25s ease;
+}
+.topo.rolou, .topo.menu-aberto { background: rgba(26, 20, 16, .94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--linha-escura); }
+.topo-in { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: var(--header-h); }
+.logo { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--font-display); font-size: 1.9rem; line-height: 1; letter-spacing: .03em; }
+.logo .ic { width: 1.1em; height: 1.1em; color: var(--tomate); fill: var(--tomate); stroke: none; }
+.logo b { font-weight: 400; color: var(--cheddar); }
+.topo-acoes { display: flex; align-items: center; gap: 8px; }
+.menu-btn { width: 46px; height: 46px; display: grid; place-content: center; gap: 5px; background: none; border: 2px solid var(--linha-escura); border-radius: 14px; cursor: pointer; color: var(--creme); }
+.menu-btn span { display: block; width: 20px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav {
+  position: absolute; top: 100%; left: 0; right: 0; display: none;
+  background: var(--carvao); border-bottom: 1px solid var(--linha-escura);
+  padding: 4px max(16px, env(safe-area-inset-right, 0px)) 20px max(16px, env(safe-area-inset-left, 0px));
+}
+.nav.aberto { display: block; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.nav a { display: block; padding: 15px 4px; font-weight: 600; font-size: 1.1rem; text-decoration: none; border-bottom: 1px solid var(--linha-escura); }
+.nav a:hover { color: var(--cheddar); }
+@media (max-width: 379px) { .topo .btn { display: none; } }
+@media (min-width: 960px) {
+  .menu-btn { display: none; }
+  .nav { position: static; display: block; background: none; border: 0; padding: 0; }
+  .nav ul { display: flex; gap: 30px; }
+  .nav a { position: relative; padding: 8px 0; border: 0; font-size: .95rem; }
+  .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: var(--cheddar); transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
+  .nav a:hover::after { transform: scaleX(1); }
+  .topo-in { gap: 32px; }
+}
+
+/* =========================================================
+   2. HERO
+   ========================================================= */
+.hero {
+  position: relative; isolation: isolate; display: flex; align-items: center; overflow: hidden;
+  min-height: 100vh;
+  min-height: calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  padding-block: calc(var(--header-h) + 28px) 56px;
+  background: var(--carvao);
+}
+.hero-media { position: absolute; inset: 0; z-index: -2; --ga: #D62828; --gb: #5A1D0E; }
+.hero-media > img { object-position: 60% 50%; }
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(0deg, var(--carvao) 0%, rgba(26, 20, 16, 0) 26%),
+    linear-gradient(180deg, rgba(26, 20, 16, .72) 0%, rgba(26, 20, 16, .82) 100%);
+}
+.hero-art { position: absolute; display: none; right: -14%; bottom: 8%; width: 92vw; opacity: .3; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .5)); }
+.hero-media.sem-foto .hero-art { display: block; }
+.hero-in { display: grid; gap: 20px; align-items: end; }
+.hero-txt { max-width: 740px; }
+.hero-t { font-family: var(--font-display); font-weight: 400; font-size: clamp(3.4rem, 12vw, 8rem); line-height: .92; letter-spacing: .01em; margin: 14px 0 20px; text-wrap: balance; }
+.hero-t em { font-style: normal; color: var(--cheddar); }
+.hero-sub { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: rgba(255, 243, 224, .88); max-width: 34em; margin-bottom: 30px; }
+.hero-bt { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+.hero-fatos { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: .92rem; font-weight: 500; color: rgba(255, 243, 224, .86); }
+.hero-fatos li { display: inline-flex; align-items: center; gap: 8px; }
+.hero-fatos .ic { color: var(--cheddar); }
+
+.selo { order: -1; justify-self: end; width: 96px; }
+.selo svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .4)); }
+.selo text { font-family: var(--font-body); font-weight: 700; fill: var(--creme); }
+.selo .selo-100 { font-family: var(--font-display); font-weight: 400; font-size: 46px; fill: var(--cheddar); letter-spacing: 1px; }
+.selo .selo-art { font-family: var(--font-display); font-weight: 400; font-size: 19px; letter-spacing: 3px; }
+.selo-giro { transform-origin: 80px 80px; animation: giro 22s linear infinite; }
+@keyframes giro { to { transform: rotate(360deg); } }
+
+@media (min-width: 900px) {
+  .hero::after {
+    background:
+      linear-gradient(0deg, var(--carvao) 0%, rgba(26, 20, 16, 0) 24%),
+      linear-gradient(90deg, rgba(26, 20, 16, .94) 0%, rgba(26, 20, 16, .72) 46%, rgba(26, 20, 16, .2) 100%);
+  }
+  .hero-in { grid-template-columns: 1fr auto; gap: 40px; }
+  .selo { order: 0; width: 176px; align-self: end; margin-bottom: 8px; }
+  .hero-art { right: max(16px, 5vw); bottom: 10%; width: min(46vw, 580px); opacity: 1; }
+}
+
+/* =========================================================
+   3. MAIS PEDIDOS
+   ========================================================= */
+.grid-destaques { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grid-destaques { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .grid-destaques { grid-template-columns: repeat(4, 1fr); } }
+.grid-destaques > li { display: flex; min-width: 0; }
+.card {
+  display: flex; flex-direction: column; width: 100%; overflow: hidden;
+  background: var(--carvao-2); border: 1px solid var(--linha-escura); border-radius: var(--raio-g);
+  box-shadow: var(--sombra); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card .foto { aspect-ratio: 4 / 3; max-width: 100%; }
+.card-tag { position: absolute; z-index: 2; top: 14px; left: 14px; background: var(--tomate); color: var(--creme); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; }
+.card-corpo { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 22px; }
+.card h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; line-height: 1; letter-spacing: .02em; margin: 0; }
+.card p { margin: 0; color: var(--texto-suave); font-size: .95rem; }
+.card-gramas { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--cheddar); }
+.card-rodape { margin-top: auto; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.preco { font-family: var(--font-display); font-size: 2.1rem; line-height: 1; color: var(--cheddar); font-variant-numeric: tabular-nums; }
+.preco small { font-family: var(--font-body); font-size: .8rem; font-weight: 600; margin-right: 4px; color: var(--texto-suave); }
+@media (hover: hover) {
+  .card:hover { transform: translateY(-8px); box-shadow: var(--sombra-hover); border-color: rgba(247, 184, 1, .45); }
+  .card:hover .foto img, .tile:hover img { transform: scale(1.06); }
+}
+
+/* =========================================================
+   4. CARDÁPIO (abas)
+   ========================================================= */
+.abas { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.aba {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: .5rem 1.15rem;
+  background: transparent; color: var(--tinta); border: 2px solid var(--linha-clara); border-radius: 999px;
+  font: 600 .95rem/1 var(--font-body); cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .15s ease;
+}
+.aba:hover { border-color: var(--tomate); }
+.aba:active { transform: scale(.96); }
+.aba[aria-selected="true"] { background: var(--tomate); border-color: var(--tomate); color: var(--creme); }
+.itens { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .itens { grid-template-columns: repeat(2, 1fr); } }
+.itens.troca .item { animation: entra .38s ease both; animation-delay: calc(var(--i, 0) * 55ms); }
+@keyframes entra { from { opacity: 0; transform: translateY(12px); } }
+.item {
+  display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 14px;
+  background: var(--papel); border: 1px solid var(--linha-clara); border-radius: var(--raio);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+@media (hover: hover) { .item:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(42, 31, 24, .14); } }
+.item .foto { width: 96px; aspect-ratio: 1; max-width: 100%; border-radius: 14px; align-self: start; }
+.item-corpo { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.item-topo { display: flex; align-items: baseline; gap: 8px; }
+.item-nome { font-size: 1.05rem; font-weight: 700; line-height: 1.25; margin: 0; }
+.item-pontos { flex: 1; min-width: 10px; border-bottom: 2px dotted rgba(42, 31, 24, .28); transform: translateY(-4px); }
+.item-preco { font-family: var(--font-display); font-size: 1.55rem; line-height: 1; color: var(--tomate); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.item-desc { margin: 0; font-size: .9rem; color: var(--tinta-suave); }
+.item-rodape { margin-top: auto; padding-top: 6px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.chip { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--tomate-esc); background: rgba(214, 40, 40, .1); padding: 5px 10px; border-radius: 999px; }
+@media (max-width: 420px) { .item { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; } .item .foto { width: 76px; } }
+
+/* =========================================================
+   5. POR QUE SOMOS DIFERENTES
+   ========================================================= */
+.vantagens { list-style: none; margin: 0; padding: 0; display: grid; gap: 36px 32px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .vantagens { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1040px) { .vantagens { grid-template-columns: repeat(4, 1fr); } }
+.vantagem { border-top: 1px solid var(--linha-escura); padding-top: 26px; min-width: 0; }
+.vantagem-ic { width: 68px; height: 68px; display: grid; place-items: center; border-radius: 50%; background: rgba(247, 184, 1, .1); border: 1px solid rgba(247, 184, 1, .4); color: var(--cheddar); margin-bottom: 20px; }
+.vantagem-ic .ic { width: 32px; height: 32px; }
+.vantagem h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.8rem; line-height: 1; letter-spacing: .02em; margin: 0 0 10px; }
+.vantagem p { margin: 0; color: var(--texto-suave); font-size: .97rem; }
+
+/* =========================================================
+   6. SOBRE NÓS
+   ========================================================= */
+.sobre-grid { display: grid; gap: 48px; grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 900px) { .sobre-grid { grid-template-columns: 1fr 1fr; gap: 72px; } }
+.sobre-foto { position: relative; max-width: 520px; }
+.sobre-foto::before { content: ""; position: absolute; inset: 12px -12px -12px 12px; background: var(--tomate); border-radius: var(--raio-g); }
+.sobre-foto .foto { position: relative; z-index: 1; aspect-ratio: 4 / 5; max-width: 100%; border-radius: var(--raio-g); box-shadow: 0 20px 44px rgba(42, 31, 24, .3); }
+.carimbo { position: absolute; z-index: 2; left: 16px; bottom: 16px; background: var(--creme); color: var(--tinta); border-radius: 14px; padding: 10px 16px; line-height: 1; }
+.carimbo small { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tomate); margin-bottom: 4px; }
+.carimbo b { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; }
+.sobre-txt { display: grid; gap: 18px; }
+.sobre-txt p { margin: 0; color: var(--tinta-suave); font-size: 1.05rem; max-width: 52ch; text-wrap: pretty; }
+.ficha { margin: 10px 0 0; padding: 0; max-width: 52ch; }
+.ficha div { display: grid; grid-template-columns: 90px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--linha-clara); }
+.ficha div:last-child { border-bottom: 1px solid var(--linha-clara); }
+.ficha dt { font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tomate); padding-top: 3px; }
+.ficha dd { margin: 0; font-weight: 500; }
+@media (min-width: 900px) { .sobre-foto::before { inset: 18px -18px -18px 18px; } }
+
+/* =========================================================
+   7. AVALIAÇÕES (carrossel)
+   ========================================================= */
+.car { max-width: 880px; }
+.car-vp { overflow: hidden; border-radius: var(--raio-g); touch-action: pan-y; }
+.car-track { display: flex; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.dep { flex: 0 0 100%; min-width: 0; display: grid; gap: 22px; padding: clamp(26px, 5vw, 52px); background: var(--carvao-2); border: 1px solid var(--linha-escura); border-radius: var(--raio-g); }
+.dep::before { content: "“"; content: "“" / ""; font-family: var(--font-display); font-size: 6.5rem; line-height: .5; height: 40px; color: var(--tomate); }
+.dep blockquote { margin: 0; font-size: clamp(1.15rem, 2.6vw, 1.6rem); line-height: 1.45; font-weight: 500; text-wrap: pretty; }
+.estrelas { display: inline-flex; gap: 3px; color: var(--cheddar); }
+.dep-autor { display: flex; align-items: center; gap: 14px; }
+.avatar { width: 54px; height: 54px; flex: none; display: grid; place-items: center; border-radius: 50%; background: linear-gradient(135deg, var(--tomate), var(--cheddar)); color: var(--carvao); font-family: var(--font-display); font-size: 1.5rem; line-height: 1; }
+.dep-autor strong { display: block; line-height: 1.2; }
+.dep-autor span { color: var(--texto-suave); font-size: .9rem; }
+.car-ctl { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.car-btn { width: 48px; height: 48px; display: grid; place-items: center; background: transparent; color: var(--creme); border: 2px solid var(--linha-escura); border-radius: 50%; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background-color .2s ease, border-color .2s ease, transform .15s ease; }
+.car-btn:hover { border-color: var(--cheddar); background: rgba(247, 184, 1, .1); }
+.car-btn:active { transform: scale(.92); }
+.dots { display: flex; margin-left: auto; }
+.dot { width: 36px; height: 44px; display: grid; place-items: center; background: none; border: 0; cursor: pointer; }
+.dot::before { content: ""; width: 10px; height: 10px; border-radius: 999px; background: rgba(255, 243, 224, .32); transition: width .25s ease, background-color .25s ease; }
+.dot[aria-current="true"]::before { width: 26px; background: var(--cheddar); }
+
+/* =========================================================
+   8. GALERIA
+   ========================================================= */
+.gal-cab { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px 32px; margin-bottom: clamp(28px, 4vw, 48px); }
+.gal-cab .cab { margin-bottom: 0; }
+.mosaico { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(150px, 42vw, 220px); }
+.mosaico > li { min-width: 0; }
+.mosaico .t-g { grid-column: span 2; grid-row: span 2; }
+.mosaico .t-l { grid-column: span 2; }
+.tile { height: 100%; border-radius: 18px; text-decoration: none; }
+.tile-ov { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; background: rgba(26, 20, 16, .55); color: var(--creme); opacity: 0; transition: opacity .25s ease; }
+.tile-ov .ic { width: 34px; height: 34px; }
+.tile:hover .tile-ov, .tile:focus-visible .tile-ov { opacity: 1; }
+@media (min-width: 760px) {
+  .mosaico { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(180px, 19vw, 250px); gap: 14px; }
+}
+
+/* =========================================================
+   9. CTA FINAL
+   ========================================================= */
+.cta {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(247, 184, 1, .22) 0, transparent 40%),
+    radial-gradient(rgba(26, 20, 16, .14) 1.5px, transparent 1.6px) 0 0 / 22px 22px,
+    var(--tomate);
+  color: var(--creme);
+  padding-block: clamp(64px, 9vw, 110px);
+  scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+}
+.cta-in { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 900px) { .cta-in { grid-template-columns: 1.25fr 1fr; gap: 56px; } }
+.cta h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.8rem, 7.4vw, 5.8rem); line-height: .93; letter-spacing: .01em; margin: 0 0 14px; text-wrap: balance; }
+.cta p { margin: 0; font-size: 1.12rem; max-width: 36ch; }
+.cta-bt { display: grid; gap: 16px; }
+.cta .btn-primario { --sb: #7E1414; }
+.cta .btn { min-height: 60px; font-size: 1.08rem; }
+
+/* =========================================================
+   10. CONTATO E RODAPÉ
+   ========================================================= */
+.contato-grid { display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 960px) { .contato-grid { grid-template-columns: 1.1fr 1fr; gap: 28px; } }
+.mapa-wrap { position: relative; min-height: 340px; border-radius: var(--raio-g); overflow: hidden; border: 1px solid var(--linha-escura); }
+/* Mapa de exemplo (sites externos não carregam dentro do artifact).
+   Em produção, troque este bloco pelo iframe do Google Maps:
+   <iframe title="Mapa" src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */
+.mapa {
+  position: absolute; inset: 0; overflow: hidden; background-color: #2A2019;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(255, 243, 224, .05) 46px 48px),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(255, 243, 224, .05) 46px 48px);
+}
+.rua { position: absolute; background: rgba(247, 184, 1, .16); border-radius: 8px; }
+.r1 { left: -10%; right: -10%; top: 38%; height: 16px; transform: rotate(-7deg); }
+.r2 { top: -10%; bottom: -10%; left: 62%; width: 14px; transform: rotate(9deg); }
+.r3 { left: -10%; right: -10%; top: 72%; height: 9px; transform: rotate(4deg); background: rgba(255, 243, 224, .1); }
+.r4 { top: -10%; bottom: -10%; left: 24%; width: 9px; transform: rotate(-5deg); background: rgba(255, 243, 224, .1); }
+.pino { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -100%); display: grid; justify-items: center; gap: 2px; }
+.pino .ic { width: 52px; height: 52px; color: var(--tomate); fill: var(--tomate); stroke: var(--creme); filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .5)); }
+.pino b { background: var(--creme); color: var(--tinta); font-size: .78rem; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.mapa-bt { position: absolute; z-index: 2; left: 16px; bottom: 20px; }
+.contato-info { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.info { background: var(--carvao-2); border: 1px solid var(--linha-escura); border-radius: var(--raio); padding: 22px; display: grid; gap: 10px; min-width: 0; }
+.info h3 { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; letter-spacing: .03em; margin: 0; color: var(--cheddar); }
+.info p { margin: 0; color: var(--texto-suave); }
+.info address { font-style: normal; color: var(--creme); }
+.info a.link { color: var(--cheddar); font-weight: 600; }
+.horarios { list-style: none; margin: 0; padding: 0; }
+.horarios li { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--linha-escura); font-size: .95rem; color: var(--texto-suave); }
+.horarios li:last-child { border-bottom: 0; }
+.horarios li[aria-current="date"] { color: var(--cheddar); font-weight: 700; }
+.status { display: inline-flex; align-items: center; gap: 8px; width: fit-content; max-width: 100%; font-weight: 600; font-size: .9rem; padding: 6px 12px; border-radius: 999px; background: rgba(255, 243, 224, .08); }
+.status::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: #9A8C7E; }
+.status.on::before { background: #3DDC84; }
+.tel { font-family: var(--font-display); font-size: 2rem; letter-spacing: .04em; line-height: 1; color: var(--creme); user-select: all; }
+
+.rodape { background: #120D0A; padding-block: 44px 28px; border-top: 1px solid var(--linha-escura); }
+.rodape-topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 28px; border-bottom: 1px solid var(--linha-escura); }
+.rodape-topo p { margin: 8px 0 0; color: var(--texto-suave); font-size: .95rem; }
+.redes { display: flex; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.redes a { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; border: 2px solid var(--linha-escura); transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .15s ease; }
+.redes a:hover { background: var(--cheddar); color: var(--carvao); border-color: var(--cheddar); }
+.redes a:active { transform: scale(.92); }
+.redes .ic { width: 22px; height: 22px; }
+.rodape-fim { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 24px; font-size: .85rem; color: rgba(255, 243, 224, .62); }
+.rodape-fim p { margin: 0; }
+
+/* ===== Botão flutuante do WhatsApp ===== */
+.zap {
+  position: fixed; z-index: 40;
+  right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: 62px; height: 62px; display: grid; place-items: center; border-radius: 50%;
+  background: #25D366; color: #0B2A16; box-shadow: 0 10px 24px rgba(0, 0, 0, .45);
+  transition: transform .15s ease, box-shadow .2s ease; -webkit-tap-highlight-color: transparent;
+}
+.zap .ic { width: 32px; height: 32px; stroke-width: 1.7; }
+.zap:hover { transform: translateY(-3px) scale(1.05); }
+.zap:active { transform: scale(.94); }
+.zap::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25D366; animation: pulso 2.6s ease-out infinite; pointer-events: none; }
+@keyframes pulso { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.6); opacity: 0; } }
+
+/* ===== Movimento reduzido ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  html.js .rev:not(.in) { transform: none; }
+}
+</style>
+
+<!-- Ícones (sprite SVG reutilizado com <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2c1.2 3.6 6 5.6 6 11a6 6 0 0 1-12 0c0-2.4 1.2-3.8 2.4-5 .3 1.4 1.1 2.4 2.4 2.6-.5-3.4-.4-6.2 1.2-8.6z"/></symbol>
+  <symbol id="i-burger" viewBox="0 0 24 24"><path d="M4 10a8 6.5 0 0 1 16 0z"/><path d="M3.5 13.5c1.5 1 2.5-1 4 0s2.5-1 4 0 2.5-1 4 0 2.5-1 4.5 0"/><path d="M4 16.5h16"/><path d="M5 19h14v1a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-fries" viewBox="0 0 24 24"><path d="M6 10h12l-1.5 11h-9z"/><path d="M8.5 10V4M11 10V3M13.5 10V4.5M16 10V5"/></symbol>
+  <symbol id="i-drink" viewBox="0 0 24 24"><path d="M6 7h12l-1.4 14H7.4z"/><path d="M12 7l2-4h3"/><path d="M7 12h10"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19c3-4 6-7 10-9"/></symbol>
+  <symbol id="i-meat" viewBox="0 0 24 24"><path d="M6 8c2-3 8-4 11-1 3 3 1 9-3 11-4 2-10 0-10-5 0-2 .8-4 2-5z"/><circle cx="14" cy="12" r="2"/></symbol>
+  <symbol id="i-bread" viewBox="0 0 24 24"><path d="M4 12c0-4 3.5-7 8-7s8 3 8 7v1H4z"/><path d="M5 16h14v1a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M9 9l1 1M13 8l1 1M15.5 11l1 1"/></symbol>
+  <symbol id="i-sauce" viewBox="0 0 24 24"><path d="M10 3h4v3l1.5 2.5V20a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1V8.5L10 6z"/><path d="M8.5 13h7"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-bike" viewBox="0 0 24 24"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16l4-7h5l3 7M10 9l-1-2H7M15 9l-2 7"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14C11.5 4.5 10 6 10 8.5V11H7.5v3.5H10V20h3.5v-5.5H16L16.5 11h-3V8.8c0-.5.2-.8.5-.8z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2.1-1-1 .8c-.9-.4-1.8-1.3-2.2-2.2l.8-1-1-2.1z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- =========================================================
+     1. HEADER FIXO
+     ========================================================= -->
+<header class="topo" id="topo">
+  <div class="wrap topo-in">
+    <a class="logo" href="#inicio" aria-label="Brasa &amp; Pão, voltar ao início">
+      <svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>
+      <span>BRASA <b>&amp;</b> PÃO</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Principal">
+      <ul>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#destaques">Destaques</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="topo-acoes">
+      <a class="btn btn-primario btn-sm" href="https://wa.me/5511999990000" data-whatsapp>Peça agora</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo" tabindex="-1">
+
+  <!-- =========================================================
+       2. HERO EM TELA CHEIA
+       A foto do hero carrega na hora (sem lazy), por estar na primeira dobra.
+       ========================================================= -->
+  <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+    <div class="hero-media foto">
+      <svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg>
+      <!-- Ilustração que aparece só se a foto falhar -->
+      <svg class="hero-art" viewBox="0 0 400 320" aria-hidden="true">
+        <ellipse cx="200" cy="304" rx="150" ry="12" fill="rgba(0,0,0,.4)"/>
+        <path d="M60 240H340V258Q340 284 312 284H88Q60 284 60 258Z" fill="#C47E22"/>
+        <rect x="44" y="186" width="312" height="52" rx="26" fill="#4A2316"/>
+        <path d="M50 172H350V190Q350 200 338 200H318Q312 200 312 214V240Q312 250 302 250Q292 250 292 240V206Q292 200 284 200H120Q112 200 112 208V224Q112 232 104 232Q96 232 96 224V202Q96 200 88 200H62Q50 200 50 190Z" fill="#F7B801"/>
+        <rect x="56" y="160" width="288" height="16" rx="8" fill="#D62828"/>
+        <path d="M45 156q18-20 36 0t36 0 36 0 36 0 36 0 36 0 36 0 36 0V172H45Z" fill="#5E8C31"/>
+        <path d="M58 150C58 76 128 32 200 32S342 76 342 150Z" fill="#D9902F"/>
+        <path d="M92 110C104 74 140 52 178 48" stroke="rgba(255,255,255,.28)" stroke-width="8" stroke-linecap="round" fill="none"/>
+        <g fill="#FFF3E0"><ellipse cx="150" cy="82" rx="9" ry="4.5" transform="rotate(-25 150 82)"/><ellipse cx="206" cy="66" rx="9" ry="4.5"/><ellipse cx="255" cy="88" rx="9" ry="4.5" transform="rotate(25 255 88)"/><ellipse cx="180" cy="112" rx="9" ry="4.5" transform="rotate(-10 180 112)"/><ellipse cx="236" cy="122" rx="9" ry="4.5" transform="rotate(15 236 122)"/><ellipse cx="294" cy="124" rx="9" ry="4.5" transform="rotate(35 294 124)"/><ellipse cx="116" cy="130" rx="9" ry="4.5" transform="rotate(-35 116 130)"/></g>
+      </svg>
+      <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=1800&q=70"
+           alt="Hambúrguer artesanal com queijo cheddar derretendo sobre a carne grelhada" fetchpriority="high">
+    </div>
+
+    <div class="wrap hero-in">
+      <div class="hero-txt">
+        <p class="eyebrow">Hamburgueria artesanal</p>
+        <h1 class="hero-t" id="hero-titulo">O hambúrguer que você sonha em <em>morder.</em></h1>
+        <p class="hero-sub">Carne suculenta, pão macio e ingredientes frescos, feitos na hora.</p>
+        <div class="hero-bt">
+          <a class="btn btn-primario" href="https://wa.me/5511999990000" data-whatsapp>Peça agora</a>
+          <a class="btn btn-fantasma" href="#cardapio">Ver cardápio</a>
+        </div>
+        <ul class="hero-fatos">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-meat"/></svg>180 g de carne por burger</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-bread"/></svg>Pão assado todo dia às 5h</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-bike"/></svg>Entrega em até 40 min</li>
+        </ul>
+      </div>
+
+      <!-- Selo "100% artesanal" -->
+      <div class="selo" role="img" aria-label="Selo 100% artesanal">
+        <svg viewBox="0 0 160 160" aria-hidden="true">
+          <defs><path id="selo-arco" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs>
+          <circle cx="80" cy="80" r="78" fill="#D62828"/>
+          <circle cx="80" cy="80" r="73" fill="none" stroke="#FFF3E0" stroke-opacity=".45" stroke-dasharray="2 5"/>
+          <g class="selo-giro"><text font-size="11.5" letter-spacing="1"><textPath href="#selo-arco" textLength="380" lengthAdjust="spacing">FEITO NA BRASA • FEITO NA HORA • </textPath></text></g>
+          <text class="selo-100" x="80" y="88" text-anchor="middle">100%</text>
+          <text class="selo-art" x="80" y="108" text-anchor="middle">ARTESANAL</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3. MAIS PEDIDOS
+       ========================================================= -->
+  <section class="secao" id="destaques" aria-labelledby="destaques-titulo">
+    <div class="wrap">
+      <div class="cab rev">
+        <p class="eyebrow">Mais pedidos</p>
+        <h2 class="titulo" id="destaques-titulo">Os que mais <em>saem da chapa</em></h2>
+        <p class="lead">Quatro clássicos da casa que a gente nunca consegue tirar do cardápio.</p>
+      </div>
+
+      <ul class="grid-destaques">
+        <li class="rev">
+          <article class="card">
+            <div class="foto" style="--ga:#F7B801;--gb:#8A2A12">
+              <span class="card-tag">Mais pedido</span>
+              <svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg>
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=70" alt="Hambúrguer Clássico da Casa com queijo, alface e tomate no pão brioche" loading="lazy">
+            </div>
+            <div class="card-corpo">
+              <span class="card-gramas">180 g</span>
+              <h3>Clássico da Casa</h3>
+              <p>Blend bovino, queijo prato, alface americana, tomate, picles e molho da casa no brioche.</p>
+              <div class="card-rodape">
+                <span class="preco"><small>R$</small>32,90</span>
+                <a class="btn btn-tomate btn-sm" href="https://wa.me/5511999990000" data-whatsapp data-produto="Clássico da Casa">Quero esse</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="rev" style="--d:.08s">
+          <article class="card">
+            <div class="foto" style="--ga:#D62828;--gb:#5A1D0E">
+              <svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg>
+              <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&q=70" alt="Hambúrguer Cheddar Bacon com cheddar cremoso escorrendo e bacon crocante" loading="lazy">
+            </div>
+            <div class="card-corpo">
+              <span class="card-gramas">180 g</span>
+              <h3>Cheddar Bacon</h3>
+              <p>Cheddar cremoso derretido, bacon crocante em tiras, cebola caramelizada e barbecue defumado.</p>
+              <div class="card-rodape">
+                <span class="preco"><small>R$</small>38,90</span>
+                <a class="btn btn-tomate btn-sm" href="https://wa.me/5511999990000" data-whatsapp data-produto="Cheddar Bacon">Quero esse</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="rev" style="--d:.16s">
+          <article class="card">
+            <div class="foto" style="--ga:#E8871E;--gb:#4A2314">
+              <svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg>
+              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=70" alt="Hambúrguer Duplo Smash com duas carnes selecionadas e queijo americano" loading="lazy">
+            </div>
+            <div class="card-corpo">
+              <span class="card-gramas">2 × 90 g</span>
+              <h3>Duplo Smash</h3>
+              <p>Dois smashes selados na chapa, queijo americano duplo, cebola na chapa, picles e molho smash.</p>
+              <div class="card-rodape">
+                <span class="preco"><small>R$</small>36,90</span>
+                <a class="btn btn-tomate btn-sm" href="https://wa.me/5511999990000" data-whatsapp data-produto="Duplo Smash">Quero esse</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <li class="rev" style="--d:.24s">
+          <article class="card">
+            <div class="foto" style="--ga:#FFB703;--gb:#7A2410">
+              <svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg>
+              <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=800&q=70" alt="Hambúrguer Picanha Premium com queijo provolone maçaricado e rúcula" loading="lazy">
+            </div>
+            <div class="card-corpo">
+              <span class="card-gramas">200 g</span>
+              <h3>Picanha Premium</h3>
+              <p>Picanha moída, provolone maçaricado, rúcula, tomate confitado e maionese de alho assado.</p>
+              <div class="card-rodape">
+                <span class="preco"><small>R$</small>46,90</span>
+                <a class="btn btn-tomate btn-sm" href="https://wa.me/5511999990000" data-whatsapp data-produto="Picanha Premium">Quero esse</a>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4. CARDÁPIO POR CATEGORIAS (abas montadas pelo JavaScript)
+       ========================================================= -->
+  <section class="secao claro" id="cardapio" aria-labelledby="cardapio-titulo">
+    <div class="wrap">
+      <div class="cab rev">
+        <p class="eyebrow">Cardápio</p>
+        <h2 class="titulo" id="cardapio-titulo">Escolha o <em>seu</em></h2>
+        <p class="lead">Toque em uma categoria e peça direto pelo WhatsApp.</p>
+      </div>
+      <div class="abas" id="abas" role="tablist" aria-label="Categorias do cardápio"></div>
+      <div class="itens" id="painel" role="tabpanel" tabindex="0"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5. POR QUE SOMOS DIFERENTES
+       ========================================================= -->
+  <section class="secao escuro-2" id="diferenciais" aria-labelledby="dif-titulo">
+    <div class="wrap">
+      <div class="cab rev">
+        <p class="eyebrow">O jeito Brasa &amp; Pão</p>
+        <h2 class="titulo" id="dif-titulo">Por que somos <em>diferentes</em></h2>
+      </div>
+      <ul class="vantagens">
+        <li class="vantagem rev">
+          <div class="vantagem-ic"><svg class="ic" aria-hidden="true"><use href="#i-meat"/></svg></div>
+          <h3>Carne 100% bovina selecionada</h3>
+          <p>Blend de fraldinha, acém e peito, moído aqui todos os dias. Nada de carne congelada.</p>
+        </li>
+        <li class="vantagem rev" style="--d:.08s">
+          <div class="vantagem-ic"><svg class="ic" aria-hidden="true"><use href="#i-bread"/></svg></div>
+          <h3>Pão artesanal assado diariamente</h3>
+          <p>Brioche de fermentação lenta, assado de manhã cedo e tostado na manteiga na hora do pedido.</p>
+        </li>
+        <li class="vantagem rev" style="--d:.16s">
+          <div class="vantagem-ic"><svg class="ic" aria-hidden="true"><use href="#i-sauce"/></svg></div>
+          <h3>Molhos exclusivos da casa</h3>
+          <p>Maionese de alho assado, barbecue defumado e molho smash: receitas nossas, feitas em pequenos lotes.</p>
+        </li>
+        <li class="vantagem rev" style="--d:.24s">
+          <div class="vantagem-ic"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg></div>
+          <h3>Ingredientes frescos</h3>
+          <p>Alface, tomate e cebola chegam da feira toda manhã. O que sobra no fim do dia não vai para o balcão no dia seguinte.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6. SOBRE NÓS
+       ========================================================= -->
+  <section class="secao claro" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="wrap sobre-grid">
+      <div class="sobre-foto rev">
+        <div class="foto" style="--ga:#F7B801;--gb:#8A2A12">
+          <svg class="ico" aria-hidden="true"><use href="#i-flame"/></svg>
+          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=900&q=70" alt="Hambúrguer artesanal recém-montado sobre a tábua da cozinha" loading="lazy">
+        </div>
+        <div class="carimbo"><small>Na chapa desde</small><b>2016</b></div>
+      </div>
+
+      <div class="sobre-txt rev" style="--d:.1s">
+        <p class="eyebrow">Nossa história</p>
+        <h2 class="titulo" id="sobre-titulo">Tudo começou numa <em>churrasqueira de quintal</em></h2>
+        <p>Em 2016, dois amigos cansados de hambúrguer congelado resolveram fazer o seu: carne moída na hora, pão assado de madrugada e muita brasa. Os vizinhos pediram bis, depois os amigos dos vizinhos.</p>
+        <p>Hoje a Brasa &amp; Pão tem balcão, chapa de ferro fundido e a mesma regra do quintal: nada vem pronto. Moemos a carne todos os dias, assamos o pão cedo e preparamos cada molho na nossa cozinha.</p>
+        <dl class="ficha">
+          <div><dt>Blend</dt><dd>Fraldinha, acém e peito, moídos todo dia</dd></div>
+          <div><dt>Chapa</dt><dd>Ferro fundido a 240 °C, carne selada na hora</dd></div>
+          <div><dt>Pão</dt><dd>Brioche assado às 5h e tostado na manteiga</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7. AVALIAÇÕES (carrossel)
+       ========================================================= -->
+  <section class="secao" id="avaliacoes" aria-labelledby="aval-titulo">
+    <div class="wrap">
+      <div class="cab rev">
+        <p class="eyebrow">Avaliações</p>
+        <h2 class="titulo" id="aval-titulo">Quem provou, <em>voltou</em></h2>
+      </div>
+
+      <div class="car rev" id="carrossel" role="region" aria-roledescription="carrossel" aria-label="Avaliações de clientes">
+        <div class="car-vp">
+          <div class="car-track" id="car-track">
+            <!-- Para usar foto no lugar das iniciais, troque o <span class="avatar"> por <img class="avatar" src="..." alt="Nome do cliente"> -->
+            <article class="dep" role="group" aria-roledescription="slide" aria-label="1 de 3">
+              <span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>O Cheddar Bacon é covardia. A carne chega no ponto, o queijo escorrendo e o pão ainda quente. Virou o nosso jantar de sexta.</blockquote>
+              <div class="dep-autor"><span class="avatar" aria-hidden="true">MT</span><div><strong>Mariana Teixeira</strong><span>Pede toda semana</span></div></div>
+            </article>
+            <article class="dep" role="group" aria-roledescription="slide" aria-label="2 de 3">
+              <span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>Provei o Picanha Premium por indicação e agora indico eu. Dá para sentir o gosto da brasa em cada mordida, e a entrega chegou quentinha.</blockquote>
+              <div class="dep-autor"><span class="avatar" aria-hidden="true">RA</span><div><strong>Rodrigo Almeida</strong><span>Cliente desde 2022</span></div></div>
+            </article>
+            <article class="dep" role="group" aria-roledescription="slide" aria-label="3 de 3">
+              <span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span>
+              <blockquote>Pedi o de grão-de-bico sem esperar muito e fui surpreendida. Vegetariano de verdade, com sabor, sem cara de prato de consolação.</blockquote>
+              <div class="dep-autor"><span class="avatar" aria-hidden="true">CN</span><div><strong>Camila Nogueira</strong><span>Cliente vegetariana</span></div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="car-ctl">
+          <button class="car-btn" id="car-prev" type="button" aria-label="Avaliação anterior"><svg class="ic" aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
+          <button class="car-btn" id="car-next" type="button" aria-label="Próxima avaliação"><svg class="ic" aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
+          <button class="car-btn" id="car-pausa" type="button" aria-label="Pausar troca automática"><svg class="ic" aria-hidden="true"><use href="#i-pause"/></svg></button>
+          <div class="dots" id="car-dots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       8. GALERIA ESTILO INSTAGRAM
+       ========================================================= -->
+  <section class="secao claro" id="galeria" aria-labelledby="gal-titulo">
+    <div class="wrap">
+      <div class="gal-cab rev">
+        <div class="cab">
+          <p class="eyebrow">Direto da chapa</p>
+          <h2 class="titulo" id="gal-titulo">Siga <em>@brasaepao</em></h2>
+          <p class="lead">Bastidores, lançamentos e muito queijo derretido todos os dias.</p>
+        </div>
+        <a class="btn btn-tomate" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg>Seguir no Instagram
+        </a>
+      </div>
+
+      <ul class="mosaico rev">
+        <li class="t-g"><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: hambúrguer com queijo derretendo" style="--ga:#F7B801;--gb:#8A2A12"><svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=70" alt="Hambúrguer suculento com queijo derretendo" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+        <li><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: hambúrguer cheddar bacon" style="--ga:#D62828;--gb:#5A1D0E"><svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=500&q=70" alt="Hambúrguer com cheddar e bacon" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+        <li><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: batatas fritas rústicas" style="--ga:#FFB703;--gb:#7A2410"><svg class="ico" aria-hidden="true"><use href="#i-fries"/></svg><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=70" alt="Porção de batatas fritas douradas" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+        <li><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: duplo smash" style="--ga:#E8871E;--gb:#4A2314"><svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=70" alt="Hambúrguer duplo com carne grelhada" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+        <li><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: hambúrguer picanha" style="--ga:#F7B801;--gb:#5A1D0E"><svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=500&q=70" alt="Hambúrguer de picanha com rúcula" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+        <li class="t-l"><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: hambúrguer clássico" style="--ga:#D62828;--gb:#8A2A12"><svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=900&q=70" alt="Hambúrguer clássico com alface e tomate" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+        <li><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: hambúrguer artesanal" style="--ga:#FFB703;--gb:#4A2314"><svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg><img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=70" alt="Hambúrguer artesanal em close" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+        <li><a class="foto tile" href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Ver no Instagram: hambúrguer na tábua" style="--ga:#E8871E;--gb:#7A2410"><svg class="ico" aria-hidden="true"><use href="#i-burger"/></svg><img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=500&q=70" alt="Hambúrguer servido com batatas" loading="lazy"><span class="tile-ov"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       9. CTA FINAL
+       ========================================================= -->
+  <section class="cta" id="pedir" aria-labelledby="cta-titulo">
+    <div class="wrap cta-in">
+      <div class="rev">
+        <h2 id="cta-titulo">Bateu a fome? Peça agora e receba quentinho.</h2>
+        <p>Do nosso balcão para a sua mesa em até 40 minutos.</p>
+      </div>
+      <div class="cta-bt rev" style="--d:.1s">
+        <a class="btn btn-primario" href="https://wa.me/5511999990000" data-whatsapp><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>Pedir pelo WhatsApp</a>
+        <a class="btn btn-escuro" href="https://www.ifood.com.br/" data-ifood target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-bike"/></svg>Pedir no iFood</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       10. CONTATO
+       ========================================================= -->
+  <section class="secao" id="contato" aria-labelledby="contato-titulo">
+    <div class="wrap">
+      <div class="cab rev">
+        <p class="eyebrow">Contato</p>
+        <h2 class="titulo" id="contato-titulo">Venha comer <em>com a gente</em></h2>
+      </div>
+
+      <div class="contato-grid">
+        <div class="mapa-wrap rev">
+          <div class="mapa" role="img" aria-label="Mapa ilustrativo mostrando a localização da Brasa e Pão">
+            <span class="rua r1"></span><span class="rua r2"></span><span class="rua r3"></span><span class="rua r4"></span>
+            <span class="pino"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><b>Brasa &amp; Pão</b></span>
+          </div>
+          <a class="btn btn-primario btn-sm mapa-bt" id="link-mapa" href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+        </div>
+
+        <div class="contato-info rev" style="--d:.1s">
+          <div class="info">
+            <h3><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Endereço</h3>
+            <address data-endereco>Rua das Brasas, 123 – Centro, São Paulo – SP</address>
+            <p>Retirada no balcão e consumo no local.</p>
+          </div>
+
+          <div class="info">
+            <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Horário de funcionamento</h3>
+            <span class="status" id="status" role="status">Verificando horário…</span>
+            <ul class="horarios" id="horarios"></ul>
+          </div>
+
+          <div class="info">
+            <h3><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp e telefone</h3>
+            <span class="tel" data-telefone>(11) 99999-0000</span>
+            <p>Pedidos, reservas de mesa e encomendas para eventos.</p>
+            <a class="btn btn-primario btn-sm" href="https://wa.me/5511999990000" data-whatsapp style="width:fit-content">Chamar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- =========================================================
+     RODAPÉ
+     ========================================================= -->
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-topo">
+      <div>
+        <a class="logo" href="#inicio" aria-label="Brasa &amp; Pão, voltar ao início"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg><span>BRASA <b>&amp;</b> PÃO</span></a>
+        <p>Hamburgueria artesanal. Feita na brasa, servida na hora.</p>
+      </div>
+      <ul class="redes" aria-label="Redes sociais">
+        <li><a href="https://www.instagram.com/brasaepao/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Brasa &amp; Pão"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Brasa &amp; Pão"><svg class="ic" aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+        <li><a href="https://wa.me/5511999990000" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="WhatsApp da Brasa &amp; Pão"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg></a></li>
+      </ul>
+    </div>
+    <div class="rodape-fim">
+      <p>© <span id="ano">2026</span> Brasa &amp; Pão. Todos os direitos reservados.</p>
+      <p>Venda de bebidas alcoólicas proibida para menores de 18 anos.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Botão flutuante do WhatsApp -->
+<a class="zap" href="https://wa.me/5511999990000" data-whatsapp target="_blank" rel="noopener noreferrer" aria-label="Pedir pelo WhatsApp">
+  <svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+</a>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO — personalize aqui
+   ========================================================= */
+var CONFIG = {
+  whatsapp: '5511999990000',                 // DDI + DDD + número, só dígitos
+  telefone: '(11) 99999-0000',
+  ifood: 'https://www.ifood.com.br/',        // link da sua loja no iFood
+  mensagem: 'Olá! Vim pelo site da Brasa & Pão e quero fazer um pedido.',
+  endereco: 'Rua das Brasas, 123 – Centro, São Paulo – SP'
+};
+
+/* Horário de funcionamento por dia (0 = domingo). null = fechado. [abre, fecha] em horas. */
+var HORARIOS = [[17, 23], null, [18, 23], [18, 23], [18, 23], [18, 24], [18, 24]];
+var DIAS = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+
+/* Cardápio — edite nomes, descrições, preços e fotos (IDs do Unsplash) */
+var CARDAPIO = {
+  classicos: { rotulo: 'Clássicos', icone: 'i-burger', itens: [
+    { nome: 'Clássico da Casa', desc: 'Blend bovino 180 g, queijo prato, alface, tomate, picles e molho da casa.', preco: 32.90, foto: '1568901346375-23c9450c58cd', tag: 'Mais pedido' },
+    { nome: 'X-Bacon', desc: 'Blend 180 g, queijo prato, bacon crocante, alface, tomate e maionese.', preco: 34.90, foto: '1571091718767-18b5b1457add' },
+    { nome: 'X-Salada', desc: 'Blend 180 g, queijo prato, alface, tomate, cebola roxa e molho da casa.', preco: 29.90, foto: '1586190848861-99aa4a171e90' },
+    { nome: 'Cheeseburger Simples', desc: 'Blend 120 g, queijo americano, picles e mostarda no brioche.', preco: 26.90, foto: '1551782450-a2132b4ba21d' }
+  ]},
+  especiais: { rotulo: 'Especiais', icone: 'i-burger', itens: [
+    { nome: 'Cheddar Bacon', desc: 'Blend 180 g, cheddar cremoso, bacon crocante, cebola caramelizada e barbecue.', preco: 38.90, foto: '1572802419224-296b0aeee0d9', tag: 'Mais pedido' },
+    { nome: 'Duplo Smash', desc: 'Dois smashes de 90 g, queijo americano duplo, cebola na chapa e molho smash.', preco: 36.90, foto: '1550547660-d9450f859349' },
+    { nome: 'Picanha Premium', desc: 'Picanha moída 200 g, provolone maçaricado, rúcula, tomate confitado e maionese de alho.', preco: 46.90, foto: '1553979459-d2229ba7433b', tag: 'Premium' },
+    { nome: 'Costela Defumada', desc: 'Costela desfiada por 12 horas, cheddar, cebola crispy e barbecue defumado.', preco: 44.90, foto: '1561758033-d89a9ad46330', tag: 'Novo' }
+  ]},
+  vegetarianos: { rotulo: 'Vegetarianos', icone: 'i-leaf', itens: [
+    { nome: 'Grão-de-Bico', desc: 'Burger de grão-de-bico e ervas, queijo prato, alface, tomate e molho de tahine.', preco: 31.90, foto: '1520072959219-c595dc870360', icone: 'i-leaf', tag: 'Vegetariano' },
+    { nome: 'Cogumelos & Queijo', desc: 'Burger de cogumelos, queijo brie, rúcula e geleia de pimenta.', preco: 33.90, icone: 'i-leaf', tag: 'Vegetariano' },
+    { nome: 'Beterraba & Quinoa', desc: 'Burger de beterraba e quinoa, queijo coalho grelhado, folhas e maionese verde.', preco: 32.90, icone: 'i-leaf', tag: 'Vegetariano' },
+    { nome: 'Berinjela Crocante', desc: 'Berinjela empanada, muçarela, tomate seco, rúcula e pesto da casa.', preco: 30.90, icone: 'i-leaf', tag: 'Vegetariano' }
+  ]},
+  acompanhamentos: { rotulo: 'Acompanhamentos', icone: 'i-fries', itens: [
+    { nome: 'Batata Rústica', desc: 'Porção de 300 g com casca, alecrim e sal grosso.', preco: 18.90, foto: '1573080496219-bb080dd4f877', icone: 'i-fries' },
+    { nome: 'Onion Rings', desc: 'Anéis de cebola empanados, porção de 250 g, com molho barbecue.', preco: 21.90, icone: 'i-fries' },
+    { nome: 'Batata Cheddar & Bacon', desc: 'Porção de 300 g coberta com cheddar cremoso e bacon crocante.', preco: 26.90, icone: 'i-fries', tag: 'Mais pedido' },
+    { nome: 'Mandioca Frita', desc: 'Porção de 300 g de mandioca sequinha com maionese de ervas.', preco: 19.90, icone: 'i-fries' }
+  ]},
+  bebidas: { rotulo: 'Bebidas', icone: 'i-drink', itens: [
+    { nome: 'Limonada Suíça', desc: 'Limão batido com leite condensado, 500 ml.', preco: 12.90, icone: 'i-drink' },
+    { nome: 'Refrigerante Lata', desc: 'Lata de 350 ml. Pergunte pelos sabores do dia.', preco: 7.00, icone: 'i-drink' },
+    { nome: 'Milkshake de Doce de Leite', desc: 'Sorvete de creme, doce de leite e chantilly, 400 ml.', preco: 22.90, foto: '1572490122747-3968b75cc699', icone: 'i-drink' },
+    { nome: 'Cerveja Artesanal IPA', desc: 'Long neck de 355 ml, bem gelada. Venda proibida para menores de 18 anos.', preco: 18.90, icone: 'i-drink' }
+  ]}
+};
+
+(function () {
+  'use strict';
+  var reduzir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Utilidades ---------- */
+  function wa(msg) { return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg); }
+  function brl(n) { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  function unsplash(id, w) { return 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=' + w + '&q=70'; }
+
+  /* Liga os links de WhatsApp, iFood e dados de contato a partir do CONFIG */
+  function ligarLinks(raiz) {
+    raiz = raiz || document;
+    raiz.querySelectorAll('[data-whatsapp]').forEach(function (a) {
+      var p = a.getAttribute('data-produto');
+      a.href = wa(p ? 'Olá! Quero pedir o ' + p + '.' : CONFIG.mensagem);
+      a.target = '_blank'; a.rel = 'noopener noreferrer';
+    });
+    raiz.querySelectorAll('[data-ifood]').forEach(function (a) { a.href = CONFIG.ifood; });
+  }
+  ligarLinks();
+  document.querySelectorAll('[data-telefone]').forEach(function (e) { e.textContent = CONFIG.telefone; });
+  document.querySelectorAll('[data-endereco]').forEach(function (e) { e.textContent = CONFIG.endereco; });
+  var mapa = document.getElementById('link-mapa');
+  if (mapa) mapa.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Brasa & Pão ' + CONFIG.endereco);
+  var ano = document.getElementById('ano');
+  if (ano) ano.textContent = new Date().getFullYear();
+
+  /* ---------- Header: fundo ao rolar e menu mobile ---------- */
+  var topo = document.getElementById('topo');
+  var menuBtn = document.getElementById('menu-btn');
+  var nav = document.getElementById('nav');
+  function aoRolar() { topo.classList.toggle('rolou', window.scrollY > 24); }
+  aoRolar();
+  window.addEventListener('scroll', aoRolar, { passive: true });
+
+  function menu(abrir) {
+    nav.classList.toggle('aberto', abrir);
+    topo.classList.toggle('menu-aberto', abrir);
+    menuBtn.setAttribute('aria-expanded', String(abrir));
+    menuBtn.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
+  }
+  menuBtn.addEventListener('click', function () { menu(menuBtn.getAttribute('aria-expanded') !== 'true'); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('aberto')) { menu(false); menuBtn.focus(); }
+  });
+
+  /* ---------- Rolagem suave entre seções ---------- */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    var alvo = id && document.getElementById(id);
+    if (!alvo) return;
+    e.preventDefault();
+    alvo.scrollIntoView({ behavior: reduzir ? 'auto' : 'smooth', block: 'start' });
+    menu(false);
+  });
+
+  /* ---------- Animações de entrada (IntersectionObserver) ---------- */
+  var revs = Array.prototype.slice.call(document.querySelectorAll('.rev'));
+  if ('IntersectionObserver' in window && !reduzir) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    revs.forEach(function (el) { io.observe(el); });
+  } else {
+    revs.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Cardápio com abas ---------- */
+  var GRADS = [['#F7B801', '#8A2A12'], ['#D62828', '#5A1D0E'], ['#E8871E', '#4A2314'], ['#FFB703', '#7A2410'], ['#C2461C', '#2B1A12']];
+  function foto(id, alt, icone, k) {
+    var g = GRADS[k % GRADS.length];
+    return '<div class="foto" style="--ga:' + g[0] + ';--gb:' + g[1] + '"><svg class="ico" aria-hidden="true"><use href="#' + icone + '"/></svg>' +
+      (id ? '<img src="' + unsplash(id, 240) + '" alt="' + alt + '" loading="lazy">' : '') + '</div>';
+  }
+  function itemHTML(it, k, cat) {
+    var icone = it.icone || CARDAPIO[cat].icone;
+    return '<article class="item" style="--i:' + k + '">' +
+      foto(it.foto, it.nome, icone, k) +
+      '<div class="item-corpo">' +
+        '<div class="item-topo"><h3 class="item-nome">' + it.nome + '</h3><span class="item-pontos" aria-hidden="true"></span><span class="item-preco">' + brl(it.preco) + '</span></div>' +
+        '<p class="item-desc">' + it.desc + '</p>' +
+        '<div class="item-rodape">' + (it.tag ? '<span class="chip">' + it.tag + '</span>' : '<span></span>') +
+          '<a class="btn btn-tomate btn-sm" href="#" data-whatsapp data-produto="' + it.nome + '" aria-label="Pedir ' + it.nome + ' pelo WhatsApp">Pedir</a></div>' +
+      '</div></article>';
+  }
+
+  var abas = document.getElementById('abas');
+  var painel = document.getElementById('painel');
+  var cats = Object.keys(CARDAPIO);
+  abas.innerHTML = cats.map(function (id) {
+    return '<button type="button" class="aba" role="tab" id="aba-' + id + '" aria-controls="painel" aria-selected="false" tabindex="-1" data-cat="' + id + '">' +
+      '<svg class="ic" aria-hidden="true"><use href="#' + CARDAPIO[id].icone + '"/></svg>' + CARDAPIO[id].rotulo + '</button>';
+  }).join('');
+
+  function mostrar(id, opcoes) {
+    opcoes = opcoes || {};
+    cats.forEach(function (k) {
+      var b = document.getElementById('aba-' + k);
+      var on = k === id;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+    });
+    painel.setAttribute('aria-labelledby', 'aba-' + id);
+    painel.innerHTML = CARDAPIO[id].itens.map(function (it, k) { return itemHTML(it, k, id); }).join('');
+    painel.classList.remove('troca');
+    if (opcoes.animar && !reduzir) { void painel.offsetWidth; painel.classList.add('troca'); }
+    ligarLinks(painel);
+    if (opcoes.foco) document.getElementById('aba-' + id).focus();
+  }
+  abas.addEventListener('click', function (e) {
+    var b = e.target.closest('.aba');
+    if (b) mostrar(b.getAttribute('data-cat'), { animar: true });
+  });
+  abas.addEventListener('keydown', function (e) {
+    var atual = cats.indexOf(document.activeElement.getAttribute('data-cat'));
+    if (atual < 0) return;
+    var n = null;
+    if (e.key === 'ArrowRight') n = (atual + 1) % cats.length;
+    else if (e.key === 'ArrowLeft') n = (atual - 1 + cats.length) % cats.length;
+    else if (e.key === 'Home') n = 0;
+    else if (e.key === 'End') n = cats.length - 1;
+    if (n !== null) { e.preventDefault(); mostrar(cats[n], { animar: true, foco: true }); }
+  });
+  mostrar(cats[0]);
+
+  /* ---------- Carrossel de avaliações ---------- */
+  (function () {
+    var raiz = document.getElementById('carrossel');
+    var track = document.getElementById('car-track');
+    var slides = Array.prototype.slice.call(track.children);
+    var dotsEl = document.getElementById('car-dots');
+    var btnPausa = document.getElementById('car-pausa');
+    var vp = raiz.querySelector('.car-vp');
+    var i = 0, timer = null, pausadoUsuario = reduzir, pausadoHover = false;
+
+    dotsEl.innerHTML = slides.map(function (_, k) {
+      return '<button type="button" class="dot" aria-label="Ir para a avaliação ' + (k + 1) + '"></button>';
+    }).join('');
+    var dots = Array.prototype.slice.call(dotsEl.children);
+
+    function ir(n) {
+      i = (n + slides.length) % slides.length;
+      track.style.transform = 'translateX(' + (-i * 100) + '%)';
+      slides.forEach(function (s, k) { s.setAttribute('aria-hidden', String(k !== i)); s.inert = k !== i; });
+      dots.forEach(function (d, k) { d.setAttribute('aria-current', String(k === i)); });
+    }
+    function parar() { if (timer) { clearInterval(timer); timer = null; } }
+    function tocar() {
+      parar();
+      if (!pausadoUsuario && !pausadoHover) timer = setInterval(function () { ir(i + 1); }, 6500);
+      raiz.querySelector('.car-track').setAttribute('aria-live', (pausadoUsuario || pausadoHover) ? 'polite' : 'off');
+    }
+    function iconePausa() {
+      btnPausa.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#' + (pausadoUsuario ? 'i-play' : 'i-pause') + '"/></svg>';
+      btnPausa.setAttribute('aria-label', pausadoUsuario ? 'Retomar troca automática' : 'Pausar troca automática');
+    }
+
+    document.getElementById('car-prev').addEventListener('click', function () { ir(i - 1); tocar(); });
+    document.getElementById('car-next').addEventListener('click', function () { ir(i + 1); tocar(); });
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { ir(k); tocar(); }); });
+    btnPausa.addEventListener('click', function () { pausadoUsuario = !pausadoUsuario; iconePausa(); tocar(); });
+    raiz.addEventListener('mouseenter', function () { pausadoHover = true; tocar(); });
+    raiz.addEventListener('mouseleave', function () { pausadoHover = false; tocar(); });
+    raiz.addEventListener('focusin', function () { pausadoHover = true; tocar(); });
+    raiz.addEventListener('focusout', function () { pausadoHover = false; tocar(); });
+    raiz.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { ir(i - 1); tocar(); }
+      if (e.key === 'ArrowRight') { ir(i + 1); tocar(); }
+    });
+
+    /* Deslizar com o dedo */
+    var x0 = null;
+    vp.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+    vp.addEventListener('pointerup', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0; x0 = null;
+      if (Math.abs(dx) > 48) { ir(i + (dx < 0 ? 1 : -1)); tocar(); }
+    });
+    vp.addEventListener('pointercancel', function () { x0 = null; });
+
+    iconePausa(); ir(0); tocar();
+  })();
+
+  /* ---------- Horários e status "aberto agora" ---------- */
+  (function () {
+    var lista = document.getElementById('horarios');
+    var status = document.getElementById('status');
+    var hoje = new Date().getDay();
+    function hh(n) { return (n % 24) + 'h'; }
+    lista.innerHTML = DIAS.map(function (nome, d) {
+      var h = HORARIOS[d];
+      return '<li' + (d === hoje ? ' aria-current="date"' : '') + '><span>' + nome + '</span><span>' + (h ? hh(h[0]) + ' às ' + hh(h[1]) : 'Fechado') + '</span></li>';
+    }).join('');
+
+    var agora = new Date();
+    var hora = agora.getHours() + agora.getMinutes() / 60;
+    var h = HORARIOS[hoje];
+    var txt, aberto = false;
+    if (h && hora >= h[0] && hora < h[1]) { aberto = true; txt = 'Aberto agora · fecha às ' + hh(h[1]); }
+    else if (h && hora < h[0]) { txt = 'Fechado · abre hoje às ' + hh(h[0]); }
+    else {
+      for (var k = 1; k <= 7; k++) {
+        var d = (hoje + k) % 7;
+        if (HORARIOS[d]) { txt = 'Fechado · abre ' + (k === 1 ? 'amanhã' : DIAS[d].toLowerCase()) + ' às ' + hh(HORARIOS[d][0]); break; }
+      }
+    }
+    status.textContent = txt || 'Consulte nossos horários';
+    status.classList.toggle('on', aberto);
+  })();
+
+  /* ---------- Fotos que já falharam antes deste script rodar ---------- */
+  document.querySelectorAll('img').forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+      img.hidden = true;
+      var f = img.closest('.foto');
+      if (f) f.classList.add('sem-foto');
+    }
+  });
+})();
+</script>
+
+</body></html>
